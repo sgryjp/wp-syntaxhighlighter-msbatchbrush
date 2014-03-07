@@ -1,5 +1,5 @@
 // Written by Suguru YAMAMOTO, http://sgry.jp
-// License: MIT License
+// License: zlib/libpng license
 
 SyntaxHighlighter.brushes.MSBatch = function()
 {
@@ -7,7 +7,7 @@ SyntaxHighlighter.brushes.MSBatch = function()
                    + 'color comp compact convert copy date del dir diskcomp diskcopy diskpart '
                    + 'doskey driverquery echo echo. endlocal erase exit fc find findstr for '
                    + 'format fsutil ftype goto gpresult graftabl icacls if label md mkdir mklink '
-                   + 'mode more move not openfiles path pause popd print prompt pushd rd recover '
+                   + 'mode more move openfiles path pause popd print prompt pushd rd recover '
                    + 'ren rename replace rmdir robocopy sc schtasks set setlocal shift shutdown '
                    + 'sort start subst systeminfo taskkill tasklist time title tree type ver '
                    + 'verify wmic xcopy';
@@ -16,13 +16,17 @@ SyntaxHighlighter.brushes.MSBatch = function()
                   + 'NUL PRN';
 
     this.regexList = [
-            { regex: /^(REM|::).*/gmi,                              css: 'comments' },
+            { regex: /^(\s*REM|::).*$/gmi,                          css: 'comments' },
             { regex: /^@echo off/gmi,                               css: 'color1' },
-            { regex: /%\w+(:[^%]+)?%/gm,                            css: 'color2' },
-            { regex: /%~?[0-9\*]/gm,                                css: 'color2' },
-            { regex: /%%?~?[fdpnxsatz]*[0-9a-zA-Z]/gm,              css: 'color2' },
-            { regex: /^:\w+/gm,                                     css: 'color3' },
-            { regex: new RegExp(this.getKeywords(spfiles), 'gmi'),  css: 'color4' },
+            { regex: /%\w+(:[^%]+)?%/gm,                            css: 'variable' },
+            { regex: /!\w+(:[^%]+)?!/gm,                            css: 'variable' },
+            { regex: /%~?[0-9\*]/gm,                                css: 'variable' },
+            { regex: /%%?~?[fdpnxsatz]*[0-9a-zA-Z]/gm,              css: 'variable' },
+            { regex: /^:\w+/gm,                                     css: 'color2' },
+            { regex: /if\s+(not\s+)?(errorlevel|exist)/gmi,         css: 'keyword' },
+            { regex: /if\s+not/gmi,                                 css: 'keyword' },
+            { regex: /if\s+(cmdextversion|defined)/gmi,             css: 'keyword' },
+            { regex: new RegExp(this.getKeywords(spfiles), 'gmi'),  css: 'keyword' },
             { regex: new RegExp(this.getKeywords(keywords), 'gmi'), css: 'keyword' }
     ];
 }

@@ -18,4 +18,9 @@ Installation
 
 Update History
 --------------
-- 2014-03-06 [add] Just created and published.
+### v0.0.4
+- [add] 
+- [mod] Changed to zlib/libpng license.
+
+### v0.0.3 (2014-03-06)
+- [add] Just created and published.
