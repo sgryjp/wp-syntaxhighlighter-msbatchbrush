@@ -19,7 +19,7 @@ Installation
 Update History
 --------------
 ### v0.0.4
-- [add] 
+- [add] Now special keywords such as "exist" which is regarded as keywords only if it its trailing after "if" will be properly highlighted.
 - [mod] Changed to zlib/libpng license.
 
 ### v0.0.3 (2014-03-06)
